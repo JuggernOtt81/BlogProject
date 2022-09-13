@@ -37,7 +37,7 @@ namespace BlogMVC
             //    options.UseNpgsql(
             //        Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(DataUtility.GetConnectionString(Configuration)));
-            services.AddDatabaseDeveloperPageExceptionFilter();
+            //services.AddDatabaseDeveloperPageExceptionFilter();
 
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -52,6 +52,7 @@ namespace BlogMVC
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

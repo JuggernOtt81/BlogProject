@@ -15,7 +15,7 @@ namespace BlogMVC.Data
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
             //it will be automatically overwritten if running on heroku
-            var databaseUrl = Environment.GetEnvironmentVariable("HEROKU_POSTGRESQL_YELLOW_URL");
+            var databaseUrl = Environment.GetEnvironmentVariable("HEROKU_POSTGRESQL_CRIMSON");
 
             return string.IsNullOrEmpty(databaseUrl) ? connectionString : BuildConnectionString(databaseUrl);
         }

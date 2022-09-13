@@ -1,3 +1,5 @@
+using AddressBookMVC.Services.Interfaces;
+using AddressBookMVC.Services;
 using BlogMVC.Data;
 using BlogMVC.Models;
 using Microsoft.AspNetCore.Builder;
@@ -46,6 +48,7 @@ namespace BlogMVC
                 .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddScoped<IImageService, BasicImageService>();
             services.AddRazorPages();
         }
 

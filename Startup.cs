@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlogMVC.Helpers;
 
 namespace BlogMVC
 {
@@ -38,7 +39,7 @@ namespace BlogMVC
             //services.AddDbContext<ApplicationDbContext>(options =>
             //    options.UseNpgsql(
             //        Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(DataUtility.GetConnectionString(Configuration)));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(ConnectionHelper.GetConnectionString(Configuration)));
             //services.AddDatabaseDeveloperPageExceptionFilter();
 
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
